@@ -1,0 +1,51 @@
+div.top-banner {
+    position: relative;
+    width: 100%;
+    height: 75px;
+    background-color: lightblue;
+}
+
+div.top-banner nav {
+    display: block;
+}
+
+div.top-banner nav ul {
+    list-style-type: none;
+
+    display: flex;
+    justify-content: left;
+}
+
+div.top-banner nav ul li {
+    float: left;
+
+    padding-top: 20px;
+    padding-right: 1%;
+}
+
+div.top-banner nav ul li a {
+    text-decoration: none;
+    text-align: center;
+
+    padding-top: 20px;
+    padding-bottom: 38px;
+}
+
+div.top-banner nav ul li a:hover {
+    animation-name: onLinkHover;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+}
+
+div.top-banner nav > a {
+    float: left;
+}
+
+@keyframes onLinkHover {
+    100% {
+        background-color: black;
+        color: red;
+    }
+}
+
+/* Todo: setup div with a sample image, center search around it, and make the search inside the form */
