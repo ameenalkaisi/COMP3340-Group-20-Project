@@ -32,10 +32,16 @@
         </div>
 
         <div class="search">
-            <form action="action.php">
-                <input type="text" id="searchbox" />
-                <img src="imgs/search-icon.png" />
+            <div class="layer"></div>
+
+            <form action="action.php" autocomplete="off">
+                <input type="text" id="searchbox" placeholder="Type here to search" />
+                <input type="button" id="submit" />
             </form>
+
+            <div class="tags">
+                <!--Todo: put some sample tags, and show them to the user try to have an animation-->
+            </div>
         </div>
     </body>
 </html>
