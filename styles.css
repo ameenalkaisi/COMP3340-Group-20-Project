@@ -39,7 +39,7 @@ div.top-banner nav ul li a {
 }
 
 div.top-banner nav ul li a:hover {
-    animation-name: onLinkHover;
+    animation-name: link-hover;
     animation-duration: 0.3s;
     animation-fill-mode: forwards;
 }
@@ -48,7 +48,7 @@ div.top-banner nav > a {
     float: left;
 }
 
-@keyframes onLinkHover {
+@keyframes link-hover {
     100% {
         background-color: black;
         color: red;
@@ -82,8 +82,6 @@ div.search form {
     justify-content: center;
 
     align-items: center;
-
-    border: 2px red solid;
 }
 
 div.search form input[type="text"] {
@@ -95,9 +93,36 @@ div.search form input[type="text"] {
     width: 500px;
 }
 
-div.search form input[type="button"] {
+div.search > form input[type="button"] {
     padding: 10px 20px;
     background-image: url(imgs/search-icon.png);
     background-size: contain;
     background-repeat: no-repeat;
+}
+
+div.search div.tags form {
+    flex-wrap: wrap;
+}
+
+div.search div.tags form input[type="button"] {
+    border-radius: 15px;
+
+    margin-right: 5%;
+}
+
+div.search div.tags form input[type="button"]:hover {
+    background-color: bisque;
+
+    animation-name: tag-hover;
+    animation-timing-function: linear;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+/* Could add entrance tag to each animation */
+
+@keyframes tag-hover {
+    100% {
+        border-color: red;
+    }
 }
