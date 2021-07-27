@@ -48,6 +48,7 @@ div.top-banner nav > a {
     float: left;
 }
 
+
 @keyframes link-hover {
     100% {
         background-color: black;
@@ -125,4 +126,19 @@ div.search div.tags form input[type="button"]:hover {
     100% {
         border-color: red;
     }
+}
+
+div.recommended {
+    display: flex;
+    justify-content: left;
+
+    background-color: lightblue;
+}
+
+article {
+    width: 10%;
+
+    padding: 20px;
+    margin: 30px;
+    background-color: lightslategray;
 }
