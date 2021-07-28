@@ -8,25 +8,8 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="top-banner">
-        <nav>
-            <a href="homepage.html">
-                <!-- Temporary icon until having a company one -->
-                <img src="imgs/search-icon.png" />
-            </a>
-            <ul>
-                <li>
-                    <a href="profile.php">Profile</a>
-                </li>
-                <li>
-                    <a href="#link2">Link 2</a>
-                </li>
-                <li>
-                    <a href="create.php">Create</a>
-                </li>
-            </ul>
-        </nav>
-    </div>
+    <?php include_once("navbar.php"); ?>
+
     <h1>Skeleton Profile, I needed this for testing create, rebase as needed.</h1>
     <form id="createform" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"])?>">
       User name:<input type="text" name="name" size="100">

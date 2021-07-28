@@ -8,27 +8,7 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <!--TODO: make the top navigation bar all point to a php function that
-    writes it on everypage. This will keep things decluttered.-->
-    <div class="top-banner">
-        <nav>
-            <a href="homepage.html">
-                <!-- Temporary icon until having a company one -->
-                <img src="imgs/search-icon.png" />
-            </a>
-            <ul>
-                <li>
-                    <a href="profile.php">Profile</a>
-                </li>
-                <li>
-                    <a href="#link2">Link 2</a>
-                </li>
-                <li>
-                    <a href="create.php">Create</a>
-                </li>
-            </ul>
-        </nav>
-    </div>
+    <?php include_once("navbar.php"); ?>
 
     <!--This is the textarea input that will allow users to insert simple
     text blogs.-->
