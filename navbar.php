@@ -21,11 +21,11 @@
                     </li>
 
                     <li class="right-nav">
-                        <a href="signin.php">Sign in/Register</a>
+                        <a href="create.php">Create Post</a>
                     </li>
 
                     <li class="right-nav">
-                        <a href="create.php">Create Post</a>
+                        <a href="profile.php">Profile</a>
                     </li>
                 </ul>
             </nav>
