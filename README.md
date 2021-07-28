@@ -20,3 +20,7 @@ sudo systemctl disable apache2
 ```
 
 This stops the current apache2 session, then disables it from auto starting so you don't have to keep doing it. The second command is optional.
+
+The webserver uses files in xampp installation folder's htdocs folder.
+In Windows, by default it is C:/xampp/htdocs
+In Linux, by default it is /opt/lampp/htdocs
