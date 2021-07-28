@@ -58,7 +58,7 @@
                     </article>";
                 }
 
-                $db = db_connect("blogdb");
+                $db = db_connect();
 
                 $results = $db->query("SELECT * FROM posts");
 

@@ -24,7 +24,7 @@
       require_once('connection.php');
       require_once('utils.php');
 
-      $db = db_connect("blogdb");
+      $db = db_connect();
 
       if($_SERVER["REQUEST_METHOD"] == "POST"){
           $send=0;

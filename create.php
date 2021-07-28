@@ -45,7 +45,7 @@
       require_once('connection.php');
       require_once('utils.php');
 
-      $db = db_connect("blogdb");
+      $db = db_connect();
 
       //form hookup for, handles the title and tags, makes them more usable for
       //the current db set

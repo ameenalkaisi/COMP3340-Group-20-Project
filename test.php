@@ -5,7 +5,7 @@
     # Temporary index.php to showcase the usage of db_connect and the utils
     # db_connect returns mysqli object, to look at how to use it, go to https://www.php.net/manual/en/book.mysqli.php
     
-    $db = db_connect("blogdb");
+    $db = db_connect();
     echo "<p>test</p>";
 
     // get display names of users that have made posts and display their names

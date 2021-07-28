@@ -6,21 +6,16 @@
     $hostname = "localhost";
     $username = $cred_user;
     $password = $cred_passwd;
+    $dbname = "blogdb";
 
-    # put in database name to connect to
-    # returns 0 if error ocurred and will output to log, otherwise the mysqli object created is returned
-    #
-    # currently there are two databases: 
-    #   "alkaisi_blogdb" for production database
-    #   "alkaisi_blogdb-test" for testing database
-    #   "blogdb" for localhost database <-- use this one
-    function db_connect($dbname) {
-        global $hostname, $username, $password;
+    # returns 0 if there is an error
+    function db_connect() {
+        global $hostname, $username, $password, $dbname;
 
         $db_connection = new mysqli($hostname, $username, $password, $dbname);
         
         if($db_connection->connect_errno) {
-            console_log ($db_connection->connection_error);
+            //console_log ($db_connection->connection_error);
 
             return 0;
         }
