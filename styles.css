@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Benne&display=swap');
 
-
 a:visited {
     color: inherit;
 }
@@ -16,18 +15,21 @@ div.top-banner nav {
     display: block;
 }
 
-div.top-banner nav ul {
+div.top-banner ul {
     list-style-type: none;
 
-    display: flex;
-    justify-content: left;
+    margin: 0;
 }
 
-div.top-banner nav ul li {
+div.top-banner li {
     float: left;
 
     padding-top: 30px;
     padding-right: 1%;
+}
+
+div.top-banner li a {
+    color: black;
 }
 
 div.top-banner nav ul li a {
@@ -46,6 +48,10 @@ div.top-banner nav ul li a:hover {
 
 div.top-banner nav > a {
     float: left;
+}
+
+div.top-banner nav ul li.right-nav {
+    float: right;
 }
 
 

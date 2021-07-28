@@ -12,19 +12,29 @@
     <body>
         <div class="top-banner">
             <nav>
-                <a href="homepage.html">
+                <a href="index.php">
                     <!-- Temporary icon until having a company one -->
                     <img src="imgs/search-icon.png" />
                 </a>
                 <ul>
                     <li>
-                        <a href="#link1">Link 1</a>
+                        <a href="termsOfUse.php">Terms of Use</a>
                     </li>
+
                     <li>
-                        <a href="#link2">Link 2</a>
+                        <a href="siteDescription.php">Site Description</a>
                     </li>
+
                     <li>
-                        <a href="#link3">Link 3</a>
+                        <a href="aboutus.php">About us</a>
+                    </li>
+
+                    <li class="right-nav">
+                        <a href="signin.php">Sign in</a>
+                    </li>
+
+                    <li class="right-nav">
+                        <a href='createpost.php'>Create Post</a>
                     </li>
                 </ul>
             </nav>
