@@ -3,8 +3,9 @@
 1. Install XAMPP (https://www.apachefriends.org/download.html) or any other local server that has phpMyAdmin
 2. Run Apache and MySQL
 3. In a browser, go to this link: localhost/phpmyadmin
-4. Go to "Import" tab, and import the .sql file
-5. When connecting to the database, use "localhost" for the host, "root" for username, and "" for password
+4. Make a database called "blogdb" with no quotes
+5. Go to "Import" tab, and import the .sql file
+6. When connecting to the database, use "localhost" for the host, "root" for username, and "" for password
     
 After previous steps, can connect the blog database by doing the following:
 ```
