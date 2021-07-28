@@ -1,4 +1,5 @@
 <?php
+    // note, must use styles.css for now
     echo '
         <div class="top-banner">
             <nav>
@@ -30,5 +31,4 @@
             </nav>
         </div>
     ';
-
 ?>
