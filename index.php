@@ -1,28 +1,93 @@
-<?php
-    require_once('connection.php');
-    require_once('utils.php');
+<!DOCTYPE html>
 
-    # Temporary index.php to showcase the usage of db_connect and the utils
-    # db_connect returns mysqli object, to look at how to use it, go to https://www.php.net/manual/en/book.mysqli.php
-    
-    $db = db_connect("blogdb");
-    echo "<p>test</p>";
+<html>
+    <head>
+        <title>Blogsite</title>
+        <meta name="keywords" content="blog, blogsite, create blogpost" />
+        <meta name="description" content="Blog hosting service and search" />
 
-    // get display names of users that have made posts and display their names
-    echo "<p>Users that have posted before <br />";
-    $queryResult = $db->query("SELECT display_name FROM users WHERE userid IN (SELECT userid FROM posts);");
-    while($row = $queryResult->fetch_assoc())
-        echo $row["display_name"] . "<br />";
-    echo "</p>";
-    
-    // get display names of users that have made posts and display their names
-    echo "<p>Users that are present <br />";
-    $queryResult = $db->query("SELECT display_name FROM users;");
-    while($row = $queryResult->fetch_assoc())
-        echo $row["display_name"] . "<br />";
-    echo "</p>";
+        <link rel="stylesheet" href="styles.css" />
+    </head>
 
-    $db->close();
+    <body>
+        <div class="top-banner">
+            <nav>
+                <a href="homepage.html">
+                    <!-- Temporary icon until having a company one -->
+                    <img src="imgs/search-icon.png" />
+                </a>
+                <ul>
+                    <li>
+                        <a href="#link1">Link 1</a>
+                    </li>
+                    <li>
+                        <a href="#link2">Link 2</a>
+                    </li>
+                    <li>
+                        <a href="#link3">Link 3</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
 
-    echo "<p>test complete</p>";
-?>
+        <div class="search">
+            <div class="layer"></div>
+
+            <!--Note: might use the search's solution for this-->
+            <form action="action.php" autocomplete="off" method="GET">
+                <input type="text" id="searchbox" placeholder="Type here to search" />
+                <input type="button" id="submit" />
+            </form>
+
+            <div class="tags">
+                <!--Todo: put some sample tags, and show them to the user try to have an animation-->
+                <form action="action.php" id="tags-form">
+                    <input type="button" value="tag 1" />
+                    <input type="button" value="tag 2" />
+                    <input type="button" value="tag 3" />
+                </form>
+            </div>
+        </div>
+
+        <div class="recommended">
+            <?php
+                require_once("connection.php");
+                function createPostView($postid, $userid, $title, $content, $tags, $db) {
+                    // after 100 characters, content goes to ...
+                    // after 20 charactesr, title goes ...
+
+
+                    if(strlen($title) > 20) {
+                        $title = substr_replace($title, "...", 17);
+                    }
+
+                    if(strlen($content) > 100) {
+                        $content = substr_replace($content, "...", 97);
+                    }
+                    // can add checking here
+                    $resultRow = $db->query("SELECT display_name FROM users WHERE userid = $userid")->fetch_assoc();
+                    $displayName = $resultRow["display_name"];
+                    echo "<article id='$postid' class='post'>
+                        <header>
+                            <h1>$title</h1>
+                            <p>Author: $displayName</p>
+                        </header>
+                        <p>$content</p>
+                    </article>";
+                }
+
+                $db = db_connect("blogdb");
+
+                $results = $db->query("SELECT * FROM posts");
+
+                while($post = $results->fetch_assoc()) {
+                    createPostView($post["postid"], $post["userid"], $post["title"], $post["content"], $post["tags"], $db);
+                }
+
+                mysqli_close($db);
+            ?>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+</html>
