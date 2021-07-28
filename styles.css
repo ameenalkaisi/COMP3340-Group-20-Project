@@ -123,6 +123,42 @@ div.search div.tags form input[type="button"]:hover {
     animation-fill-mode: forwards;
 }
 
+/*This is for laying out the create page, however they could be used for
+  layouts*/
+
+div.create {
+  height:1100px
+}
+
+div.createLeft {
+  float: left;
+  width: 20%;
+  background-color: #f0f8ff;
+  height: 100%;
+}
+
+div.createright {
+  float: right;
+  width: 20%;
+  background-color: #f0f8ff;
+  height: 100%;
+}
+div.createmiddle {
+  float: left;
+  width: 60%;
+}
+div.createintro{
+  margin: auto;
+  padding: 40px;
+  text-align: left;
+}
+
+#createText {
+  resize: none;
+  height: 800px;
+  width: 800px;
+}
+
 /* Could add entrance tag to each animation */
 
 @keyframes tag-hover {
