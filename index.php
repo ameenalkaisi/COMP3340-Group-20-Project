@@ -26,7 +26,7 @@
                     </li>
 
                     <li>
-                        <a href="aboutus.php">About us</a>
+                        <a href="aboutUs.php">About us</a>
                     </li>
 
                     <li class="right-nav">

@@ -28,10 +28,6 @@ div.top-banner li {
     padding-right: 1%;
 }
 
-div.top-banner li a {
-    color: black;
-}
-
 div.top-banner nav ul li a {
     text-decoration: none;
     text-align: center;
@@ -48,6 +44,7 @@ div.top-banner nav ul li a:hover {
 
 div.top-banner nav > a {
     float: left;
+    color: black;
 }
 
 div.top-banner nav ul li.right-nav {

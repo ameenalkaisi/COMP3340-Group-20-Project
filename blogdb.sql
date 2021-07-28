@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 19, 2021 at 11:40 PM
+-- Generation Time: Jul 28, 2021 at 08:56 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.8
 
@@ -28,6 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `posts` (
+  `postid` int(11) NOT NULL,
   `userid` int(11) NOT NULL,
   `title` varchar(50) NOT NULL,
   `content` varchar(20000) NOT NULL,
@@ -38,8 +39,9 @@ CREATE TABLE `posts` (
 -- Dumping data for table `posts`
 --
 
-INSERT INTO `posts` (`userid`, `title`, `content`, `tags`) VALUES
-(1, 'test title', 'test title content', 'test,testing,testblog');
+INSERT INTO `posts` (`postid`, `userid`, `title`, `content`, `tags`) VALUES
+(1, 1, 'test title', 'test title content', 'test,testing,testblog'),
+(2, 2, 'another test that is longer than the last one', 'this test should hopefully be longer than the last one\r\n\r\nthat would be the goal of this current test that is being written and hopefully done being written to having been written', 'more,tests,blogdbtest');
 
 -- --------------------------------------------------------
 
@@ -69,6 +71,7 @@ INSERT INTO `users` (`userid`, `display_name`, `is_admin`) VALUES
 -- Indexes for table `posts`
 --
 ALTER TABLE `posts`
+  ADD PRIMARY KEY (`postid`),
   ADD KEY `FK_userid` (`userid`);
 
 --
@@ -80,6 +83,12 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `posts`
+--
+ALTER TABLE `posts`
+  MODIFY `postid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
