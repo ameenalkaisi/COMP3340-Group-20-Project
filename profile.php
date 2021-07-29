@@ -5,7 +5,7 @@
     <meta name="keywords" content="blog, blogsite, create blogpost" />
     <meta name="description" content="Blog hosting service and search" />
 
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
     <?php include_once("navbar.php"); ?>

@@ -8,7 +8,7 @@
         <meta name="author" content="Koto Sumioka">
         <meta name="keywords" content="HTML, PHP, Blog, Blogsite, Site Description">
         <meta name="description" content="COMP3340 Team Project">
-        <link rel="stylesheet" href="styles.css" />
+        <link rel="stylesheet" href="css/styles.css" />
     </head>
     <body>
         <?php include_once("navbar.php"); ?>

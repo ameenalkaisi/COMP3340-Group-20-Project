@@ -60,7 +60,7 @@ div.top-banner nav ul li.right-nav {
 }
 
 div.search {
-    background-image: url(imgs/home-background.jpg);
+    background-image: url(../imgs/home-background.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     height: 500px;
@@ -99,7 +99,7 @@ div.search form input[type="text"] {
 
 div.search > form input[type="button"] {
     padding: 10px 20px;
-    background-image: url(imgs/search-icon.png);
+    background-image: url(../imgs/search-icon.png);
     background-size: contain;
     background-repeat: no-repeat;
 }

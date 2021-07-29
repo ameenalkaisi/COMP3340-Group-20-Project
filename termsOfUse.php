@@ -6,7 +6,7 @@
         <title>Terms of Use</title>
         <meta name="keywords" content="blog, blogsite, terms of use" />
         <meta name="description" content="Blog hosting service and search" />
-        <link rel="stylesheet" href="styles.css" />
+        <link rel="stylesheet" href="css/styles.css" />
     </head>
     <body>
         <?php include_once("navbar.php"); ?>

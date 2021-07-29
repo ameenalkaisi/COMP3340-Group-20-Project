@@ -11,7 +11,7 @@
         <meta name="keywords" content="HTML, PHP, Blog, Blogsite, About Us">
         <meta name="description" content="COMP3340 Team Project">
 
-        <link rel="stylesheet" href="styles.css" />
+        <link rel="stylesheet" href="css/styles.css" />
 
         <!-- Change CSS if necessary -->
         <style type="text/css">
