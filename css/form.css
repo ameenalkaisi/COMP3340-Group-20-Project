@@ -1,0 +1,21 @@
+form {
+    display: flex;
+
+    width: 20%;
+
+    flex-direction: column;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    background-color: beige;
+    padding: 3%;
+    margin-top: 1%;
+}
+
+form > * {
+    display: block;
+
+    margin-top: 10px;
+}
+

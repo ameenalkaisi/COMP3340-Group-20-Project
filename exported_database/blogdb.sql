@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 28, 2021 at 08:56 PM
+-- Generation Time: Jul 30, 2021 at 02:06 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.8
 
@@ -52,16 +52,18 @@ INSERT INTO `posts` (`postid`, `userid`, `title`, `content`, `tags`) VALUES
 CREATE TABLE `users` (
   `userid` int(11) NOT NULL,
   `display_name` varchar(30) NOT NULL,
-  `is_admin` tinyint(1) NOT NULL DEFAULT 0
+  `is_admin` tinyint(1) NOT NULL DEFAULT 0,
+  `email` varchar(50) NOT NULL,
+  `password` varchar(32) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`userid`, `display_name`, `is_admin`) VALUES
-(1, 'root', 1),
-(2, 'not root', 0);
+INSERT INTO `users` (`userid`, `display_name`, `is_admin`, `email`, `password`) VALUES
+(5, 'Admin - Group 20', 1, 'alkaisi@uwindsor.ca', 'c2244727d61881cd77a0d5dca8d5f4b0'),
+(9, 'new user', 0, 'user@sample.com', '5f4dcc3b5aa765d61d8327deb882cf99');
 
 --
 -- Indexes for dumped tables
@@ -88,13 +90,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `postid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `postid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

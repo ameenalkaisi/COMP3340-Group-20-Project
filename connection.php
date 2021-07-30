@@ -3,21 +3,20 @@
     require_once("credentials.php"); // look at teams/slack if you are in teams
 
     // use localhost, root, empty password for local server testing
-    $hostname = "localhost";
-    $username = $cred_user;
-    $password = $cred_passwd;
-    $dbname = "blogdb";
 
     # returns 0 if there is an error
     function db_connect() {
-        global $hostname, $username, $password, $dbname;
+        $hostname = "localhost";
+        $username = CRED_USER;
+        $password = CRED_PASSWORD;
+        $dbname = "blogdb";
 
-        $db_connection = new mysqli($hostname, $username, $password, $dbname);
-        
-        if($db_connection->connect_errno) {
-            //console_log ($db_connection->connection_error);
+        $db_connection = 0;
 
-            return 0;
+        try {
+            $db_connection = new mysqli($hostname, $username, $password, $dbname);
+        } catch(Exception $e) {
+            console_log($e);
         }
 
         return $db_connection;

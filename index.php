@@ -34,10 +34,10 @@
         <div class="recommended">
             <?php
                 require_once("connection.php");
+
                 function createPostView($postid, $userid, $title, $content, $tags, $db) {
                     // after 100 characters, content goes to ...
                     // after 20 charactesr, title goes ...
-
 
                     if(strlen($title) > 20) {
                         $title = substr_replace($title, "...", 17);
@@ -46,9 +46,13 @@
                     if(strlen($content) > 100) {
                         $content = substr_replace($content, "...", 97);
                     }
-                    // can add checking here
+
+                    // if query has error, display name should show  
                     $resultRow = $db->query("SELECT display_name FROM users WHERE userid = $userid")->fetch_assoc();
-                    $displayName = $resultRow["display_name"];
+                    $displayName = "&lt;Error Finding Author&gt;";
+                    if($resultRow) 
+                        $displayName = $resultRow["display_name"];
+
                     echo "<article id='$postid' class='post'>
                         <header>
                             <h1>$title</h1>
@@ -58,18 +62,21 @@
                     </article>";
                 }
 
+                // try to connect to database, if can't, don't show recent posts at all
                 $db = db_connect();
 
-                $results = $db->query("SELECT * FROM posts");
+                if($db) {
+                    $results = $db->query("SELECT * FROM posts");
 
-                while($post = $results->fetch_assoc()) {
-                    createPostView($post["postid"], $post["userid"], $post["title"], $post["content"], $post["tags"], $db);
+                    while($post = $results->fetch_assoc()) {
+                        createPostView($post["postid"], $post["userid"], $post["title"], $post["content"], $post["tags"], $db);
+                    }
+
+                    mysqli_close($db);
                 }
-
-                mysqli_close($db);
             ?>
         </div>
 
-        <script src="script.js"></script>
+        <script src="scripts/script.js"></script>
     </body>
 </html>

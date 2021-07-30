@@ -21,6 +21,10 @@
                     </li>
 
                     <li class="right-nav">
+                        <a href="register.php">Register</a>
+                    </li>
+
+                    <li class="right-nav">
                         <a href="create.php">Create Post</a>
                     </li>
 
