@@ -9,7 +9,10 @@
         <link rel="stylesheet" href="css/styles.css" />
     </head>
     <body>
-        <?php include_once("navbar.php"); ?>
+        <?php 
+            session_start();
+            include_once("navbar.php");
+        ?>
         
         <p>This Terms of Use is created at <a href="https://www.termsofusegenerator.net/">Terms of Use Generator</a></p>
         <!-- Here is what I've created from it: https://www.termsofusegenerator.net/download.php?lang=en&token=K1HQMPbtijKAw5SxKVzv4EzD7h3Aq3yl -->

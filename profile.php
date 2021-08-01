@@ -8,7 +8,10 @@
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <?php include_once("navbar.php"); ?>
+    <?php 
+      session_start();
+      include_once("navbar.php");
+    ?>
 
     <h1>Skeleton Profile, I needed this for testing create, rebase as needed.</h1>
     <form id="createform" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"])?>">

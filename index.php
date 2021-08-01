@@ -10,7 +10,10 @@
     </head>
 
     <body>
-        <?php include_once("navbar.php"); ?>
+        <?php 
+            session_start();
+            include_once("navbar.php"); 
+        ?>
 
         <div class="search">
             <div class="layer"></div>

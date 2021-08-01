@@ -40,7 +40,10 @@
     </head>
 
     <body>
-        <?php include_once("navbar.php"); ?>
+        <?php 
+            session_start();
+            include_once('navbar.php'); 
+        ?>
 
         <!-- Description about Us -->
         <!-- I basically wrote information we submitted for phase 2 -->

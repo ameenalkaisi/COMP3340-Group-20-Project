@@ -11,7 +11,10 @@
         <link rel="stylesheet" href="css/styles.css" />
     </head>
     <body>
-        <?php include_once("navbar.php"); ?>
+        <?php 
+            session_start();
+            include_once("navbar.php");
+        ?>
 
         <h2>About this Website</h2>
         <!-- From Phase 2's description -->

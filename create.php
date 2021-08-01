@@ -8,7 +8,10 @@
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <?php include_once("navbar.php"); ?>
+    <?php 
+        session_start();
+        include_once('navbar.php'); 
+    ?>
 
     <!--This is the textarea input that will allow users to insert simple
     text blogs.-->
