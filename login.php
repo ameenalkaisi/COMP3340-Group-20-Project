@@ -38,7 +38,7 @@
                 // try to connect to database
                 $db = db_connect();
 
-                $result = $db->query("SELECT userid, display_name, email FROM users WHERE email='$email' AND password='" . md5($password) . "'");
+                $result = $db->query("SELECT userid, display_name, email, is_admin FROM users WHERE email='$email' AND password='" . md5($password) . "'");
 
                 if($result->num_rows != 1) {
                     echo "<p style='color: red'>No users found with that email and password combination</p>";
@@ -50,6 +50,7 @@
                     $_SESSION["userid"] = $row["userid"];
                     $_SESSION["email"] = $row["email"];
                     $_SESSION["display_name"] = $row["display_name"];
+                    $_SESSION["is_admin"] = $row["is_admin"];
                     header("Location: index.php");
                 }
             }

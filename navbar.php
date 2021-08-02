@@ -1,7 +1,15 @@
 <?php
     // note, must use styles.css for now
-    if(isset($_SESSION["email"]))
+    $admin = "";
+    if(isset($_SESSION["email"])) {
         $logoutOrRegister = "<a href='logout.php'>Log out</a>";
+        
+        if($_SESSION["is_admin"] === "1") {
+            $admin = "<li class = 'right-nav'>
+                    <a href='admin.php'>Admin Panel</a>
+                </li>";
+        }
+    }
     else
         $logoutOrRegister = "<a href='login.php'>Log in/Register</a>";
 
@@ -23,9 +31,11 @@
 
                     <li>
                         <a href="aboutUs.php">About us</a>
-                    </li>
+                    </li> ' .
 
-                    <li class="right-nav"> ' .
+                    $admin . 
+
+                    '<li class="right-nav"> ' .
                         $logoutOrRegister . 
                     '</li>
 
