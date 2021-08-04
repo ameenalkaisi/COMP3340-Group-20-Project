@@ -4,7 +4,10 @@
     <head>
         <title>Log in/Register</title>
 
+        <!-- meta tags -->
+        <meta charset="utf-8">
         <meta name="keywords" content="register,blog,blogger" />
+        <meta name="description" content="Login page of the blog" />
 
         <link rel="stylesheet" href="css/styles.css" />
         <link rel="stylesheet" href="css/form.css" />
@@ -16,6 +19,7 @@
             include_once('navbar.php'); 
         ?>
 
+        <!-- receive all login data, required -->
         <form action="login.php" method="POST">
             <label for="email">Enter Email</label>
             <input type="email" name="email" id="email" required />

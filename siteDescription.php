@@ -5,6 +5,7 @@
     <head>
         <title>Site Description</title>
         <meta charset="utf-8">
+        <!-- meta tags -->
         <meta name="author" content="Koto Sumioka">
         <meta name="keywords" content="HTML, PHP, Blog, Blogsite, Site Description">
         <meta name="description" content="COMP3340 Team Project">

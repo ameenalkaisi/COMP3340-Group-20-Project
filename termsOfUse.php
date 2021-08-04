@@ -4,6 +4,8 @@
 <html>
     <head>
         <title>Terms of Use</title>
+        <!-- meta tags -->
+        <meta charset="utf-8">
         <meta name="keywords" content="blog, blogsite, terms of use" />
         <meta name="description" content="Blog hosting service and search" />
         <link rel="stylesheet" href="css/styles.css" />

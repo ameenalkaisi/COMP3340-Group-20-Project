@@ -3,8 +3,10 @@
 <html>
     <head>
         <title>Log in/Register</title>
-
+        <!-- meta tags -->
+        <meta charset="utf-8">
         <meta name="keywords" content="register,blog,blogger" />
+        <meta name="description" content="Registeration page of the blog" />
 
         <link rel="stylesheet" href="css/styles.css" />
         <link rel="stylesheet" href="css/form.css" />
