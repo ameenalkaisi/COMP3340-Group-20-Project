@@ -40,6 +40,8 @@
 
                 $result = $db->query("SELECT userid, display_name, email, is_admin FROM users WHERE email='$email' AND password='" . md5($password) . "'");
 
+                mysqli_close($db);
+
                 if($result->num_rows != 1) {
                     echo "<p style='color: red'>No users found with that email and password combination</p>";
                 } else {
@@ -51,7 +53,9 @@
                     $_SESSION["email"] = $row["email"];
                     $_SESSION["display_name"] = $row["display_name"];
                     $_SESSION["is_admin"] = $row["is_admin"];
+                    
                     header("Location: index.php");
+                    exit();
                 }
             }
         ?>

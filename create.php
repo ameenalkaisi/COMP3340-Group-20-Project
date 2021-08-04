@@ -91,6 +91,8 @@
           $send=0;
       }
 
+      mysqli_close($db);
+
       function input($data){
         $data = trim($data);
         $data = stripslashes($data);

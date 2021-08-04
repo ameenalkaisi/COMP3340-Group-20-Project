@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Benne&display=swap');
 
-a:visited {
-    color: inherit;
+a {
+    color: black;
 }
 
 div.top-banner {
@@ -180,4 +180,8 @@ article {
     padding: 20px;
     margin: 30px;
     background-color: lightslategray;
+}
+
+form > * {
+    display: block;
 }
