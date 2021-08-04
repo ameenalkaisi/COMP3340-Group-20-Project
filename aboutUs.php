@@ -13,29 +13,6 @@
 
         <link rel="stylesheet" href="css/styles.css" />
 
-        <!-- Change CSS if necessary -->
-        <style type="text/css">
-        p {
-            margin: 0;
-        }
-
-        #reserved {
-            background-color: red;
-            color: whitesmoke;
-        }
-
-        #notReserved {
-            background-color: green;
-            color: whitesmoke;
-        }
-
-        #success {
-            color: green;
-        }
-
-        #error {
-            color: red;
-        }
     </style>
     </head>
 

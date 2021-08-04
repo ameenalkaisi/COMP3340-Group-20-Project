@@ -2,6 +2,8 @@
 <html lang="en" dir="ltr">
   <head>
     <title>Blogsite</title>
+    <!-- meta tags -->
+    <meta charset="utf-8">
     <meta name="keywords" content="blog, blogsite, create blogpost" />
     <meta name="description" content="Blog hosting service and search" />
 
