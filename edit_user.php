@@ -15,6 +15,8 @@
             include_once("navbar.php");
             require("connection.php");
 
+            $is_not_admin = FALSE;
+
 
             if($_SERVER["REQUEST_METHOD"] == "GET") {
                 $userid = $_GET["id"];
@@ -61,8 +63,7 @@
                     }
                 }
             }
-           
-            // in the edit page, invalid user if 
+         
             if(!isset($_SESSION["is_admin"]) || ($_SESSION["is_admin"] === "0" && $_SESSION["userid"] != $userid)) {
                 header("Location: error.php");
             }
@@ -79,12 +80,15 @@
             <label for="password">Password</label>
             <input type="password" id="password" name="password"/>
 
+            <?php if($_SESSION["is_admin"] === "1") { ?>
             <label for="is_admin">Admin</label>
             <input type="checkbox" id="is_admin" name="is_admin" <?php if($is_admin==="1") echo "checked"; ?>/>
 
             <?php
                 echo "<input type='hidden' id='userid' name='userid' value='" . $userid . "'/>";
             ?>
+            <?php } ?>
+            
 
             <input type="submit" />
         </form>
