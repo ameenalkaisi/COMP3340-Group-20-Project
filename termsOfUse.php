@@ -3,18 +3,25 @@
 <!-- About Us for COMP3340 Team Project -->
 <html>
     <head>
+        <?php session_start(); ?>
         <title>Terms of Use</title>
         <!-- meta tags -->
         <meta charset="utf-8">
         <meta name="keywords" content="blog, blogsite, terms of use" />
         <meta name="description" content="Blog hosting service and search" />
         <link rel="stylesheet" href="css/styles.css" />
+
+        <!--Based on user preference, show the theme they used from last time-->
+        <link rel="stylesheet" href="css/<?php
+            if(isset($_SESSION["theme"])) {
+                echo $_SESSION["theme"];
+            } else {
+                echo "light";
+            }
+        ?>.css" />
     </head>
     <body>
-        <?php 
-            session_start();
-            include_once("navbar.php");
-        ?>
+        <?php include_once("navbar.php"); ?>
         
         <p>This Terms of Use is created at <a href="https://www.termsofusegenerator.net/">Terms of Use Generator</a></p>
         <!-- Here is what I've created from it: https://www.termsofusegenerator.net/download.php?lang=en&token=K1HQMPbtijKAw5SxKVzv4EzD7h3Aq3yl -->

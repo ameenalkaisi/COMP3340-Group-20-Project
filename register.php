@@ -2,6 +2,8 @@
 
 <html>
     <head>
+        <?php session_start(); ?>
+
         <title>Log in/Register</title>
         <!-- meta tags -->
         <meta charset="utf-8">
@@ -10,13 +12,20 @@
 
         <link rel="stylesheet" href="css/styles.css" />
         <link rel="stylesheet" href="css/form.css" />
+
+        <!--Based on user preference, show the theme they used from last time-->
+        <link rel="stylesheet" href="css/<?php
+            if(isset($_SESSION["theme"])) {
+                echo $_SESSION["theme"];
+            } else {
+                echo "light";
+            }
+        ?>.css" />
+
     </head>
 
     <body>
-        <?php 
-            session_start();
-            include_once('navbar.php'); 
-        ?>
+        <?php include_once('navbar.php'); ?>
 
         <form action="register.php" method="POST" autocomplete="off">
             <label for="display_name">Enter Display Name</label>

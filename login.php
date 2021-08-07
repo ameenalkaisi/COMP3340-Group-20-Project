@@ -16,7 +16,7 @@
     <body>
         <?php 
             session_start();
-            include_once('navbar.php'); 
+            include_once('navbar.php');
         ?>
 
         <!-- receive all login data, required -->
@@ -42,7 +42,7 @@
                 // try to connect to database
                 $db = db_connect();
 
-                $result = $db->query("SELECT userid, display_name, email, is_admin FROM users WHERE email='$email' AND password='" . md5($password) . "'");
+                $result = $db->query("SELECT userid, display_name, email, is_admin, theme FROM users WHERE email='$email' AND password='" . md5($password) . "'");
 
                 mysqli_close($db);
 
@@ -57,6 +57,7 @@
                     $_SESSION["email"] = $row["email"];
                     $_SESSION["display_name"] = $row["display_name"];
                     $_SESSION["is_admin"] = $row["is_admin"];
+                    $_SESSION["theme"] = $row["theme"];
                     
                     header("Location: index.php");
                     exit();

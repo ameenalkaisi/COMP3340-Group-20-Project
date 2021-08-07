@@ -4,6 +4,8 @@
 <!-- This is a page to direct to Terms of Use and Site Description -->
 <html>
     <head>
+        <?php session_start(); ?>
+
         <title>About Us</title>
         <!-- meta tags -->
         <meta charset="utf-8">
@@ -13,14 +15,19 @@
 
         <link rel="stylesheet" href="css/styles.css" />
 
+        <!--Based on user preference, show the theme they used from last time-->
+        <link rel="stylesheet" href="css/<?php
+            if(isset($_SESSION["theme"])) {
+                echo $_SESSION["theme"];
+            } else {
+                echo "light";
+            }
+        ?>.css" />
     </style>
     </head>
 
     <body>
-        <?php 
-            session_start();
-            include_once('navbar.php'); 
-        ?>
+        <?php include_once('navbar.php'); ?>
 
         <!-- Description about Us -->
         <!-- I basically wrote information we submitted for phase 2 -->

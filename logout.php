@@ -21,6 +21,7 @@
             unset($_SESSION["email"]);
             unset($_SESSION["display_name"]);
             unset($_SESSION["is_admin"]);
+            unset($_SESSION["theme"]);
             
             include_once('navbar.php'); 
         ?>

@@ -2,6 +2,8 @@
 
 <html>
     <head>
+        <?php session_start(); ?>
+
         <title>Blogsite</title>
         <!-- meta tags -->
         <meta charset="utf-8">
@@ -9,14 +11,19 @@
         <meta name="description" content="Blog hosting service and search" />
 
         <link rel="stylesheet" href="css/styles.css" />
+
+        <!--Based on user preference, show the theme they used from last time-->
+        <link rel="stylesheet" href="css/<?php
+            if(isset($_SESSION["theme"])) {
+                echo $_SESSION["theme"];
+            } else {
+                echo "light";
+            }
+        ?>.css" />
     </head>
 
     <body>
-        <?php 
-            session_start();
-            include_once("navbar.php"); 
-        ?>
-
+        <?php include_once("navbar.php"); ?>
         <div class="search">
             <div class="layer"></div>
 
