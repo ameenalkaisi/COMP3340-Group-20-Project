@@ -21,8 +21,17 @@
         ?>.css" />
 	</head>
 	<body>
-		<?php include_once("navbar.php"); ?>
+		<?php 
+			include_once("navbar.php");
 
+			// if current user isn't logged in, go to the login page
+			if(!isset($_SESSION["display_name"])) {
+				header("Location: login.php");
+				exit();
+			}
+		?>
+
+		<!--
 		<h1>Skeleton Profile, I needed this for testing create, rebase as needed.</h1>
 		<form id="createform" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"])?>">
 			User name:<input type="text" name="name" size="100">
@@ -34,42 +43,65 @@
 			<input name ="send" type="submit" value="Post Article">
 		</form>
 		<?php
-		require_once('connection.php');
-		require_once('utils.php');
+			require_once('connection.php');
+			require_once('utils.php');
 
-		$db = db_connect();
+			$db = db_connect();
 
-		if($_SERVER["REQUEST_METHOD"] == "POST"){
-			//check if user exist by searching name
-			$send=0;
-			if(!empty($_POST["name"])){
-				$name = input($_POST["name"]);
-			} else {
-				$send=1;
-			}
-
-			$admin = input($_POST["admin"]);
-
-			//validates the new user so as not to enter empty data
-			if($send==0){
-				$sql = "INSERT INTO users (display_name, is_admin) VALUES ('$name','$admin')";
-				if ($db->query($sql) === TRUE) {
-					echo "NEW POST MADE<br>";
+			if($_SERVER["REQUEST_METHOD"] == "POST"){
+				//check if user exist by searching name
+				$send=0;
+				if(!empty($_POST["name"])){
+					$name = input($_POST["name"]);
 				} else {
-					echo "Error: " . $sql . "<br>" . $conn->error;
+					$send=1;
 				}
+
+				$admin = input($_POST["admin"]);
+
+				//validates the new user so as not to enter empty data
+				if($send==0){
+					$sql = "INSERT INTO users (display_name, is_admin) VALUES ('$name','$admin')";
+					if ($db->query($sql) === TRUE) {
+						echo "NEW POST MADE<br>";
+					} else {
+						echo "Error: " . $sql . "<br>" . $conn->error;
+					}
+				}
+				$send=0;
 			}
-			$send=0;
-		}
 
-		mysqli_close($db);
+			mysqli_close($db);
 
-		function input($data){
-			$data = trim($data);
-			$data = stripslashes($data);
-			$data = htmlspecialchars($data);
-			return $data;
-		}
+			function input($data){
+				$data = trim($data);
+				$data = stripslashes($data);
+				$data = htmlspecialchars($data);
+				return $data;
+			}
 		?>
+		-->
+
+		<h1><?= $_SESSION["display_name"] ?></h1>
+
+		<form action="profile.php" method="POST">
+			<select name="new_theme">
+				<option value="light">Light</option>
+				<option value="dark">Dark</optoin>
+				<option value="christmas">Christmas</option>
+			</select>
+			<input type="submit" value="Change Theme"/>
+		</form>
+
+		<!-- Can select all posts that are made by user or something like that -->
+
+		<?php
+			if(!empty($_POST)) {
+				$_SESSION["theme"] = $_POST["new_theme"];
+				header("Refresh:1");
+			}
+		?>
+
+
 	</body>
 </html>

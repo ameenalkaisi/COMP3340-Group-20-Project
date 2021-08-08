@@ -26,6 +26,16 @@
         <?php include_once("navbar.php"); ?>
         <div class="search">
             <div class="layer"></div>
+            
+            <?php
+                // get weather information and display it here
+                $response = json_decode(file_get_contents("http://api.weatherapi.com/v1/current.json?key=ce6e75322c984ec5a1f221002210808&q=Windsor&aqi=no"));
+
+                include_once("utils.php");
+                console_debug($response);
+                echo "<h3>" . $response->current->condition->text . "</h3>";
+                echo "<h4>" . $response->current->temp_c . "C</h4>";
+            ?>
 
             <!--Note: might use the search's solution for this-->
             <form action="action.php" autocomplete="off" method="GET">
