@@ -104,5 +104,6 @@
         </table>
 
         <script src="scripts/script.js"></script>
+        <script src="scripts/admin.js"></script>
     </body>
 </html>
