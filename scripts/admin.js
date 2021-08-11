@@ -3,7 +3,6 @@
 window.onload = function() {
     // add functionality to deletion link so that admin has to confirm  before deletion
     for(let link of document.querySelectorAll("a[href^=\"delete_post\"]")) {
-        console.log(link);
         link.onclick = function() {
             if(confirm("Are you sure you want to delete this user?")) {
                 window.location = link.href;

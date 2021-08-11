@@ -45,7 +45,8 @@
                 $db = db_connect();
 
                 // get attributes to be displayed for all users that isn't the current user's  attributes
-                $query = $db->query("SELECT userid, display_name, email, is_admin FROM users WHERE NOT userid=" . $_SESSION["userid"]);
+                $query = $db->query("SELECT userid, display_name, email, is_admin FROM users WHERE NOT userid=" . $_SESSION["userid"]
+                    . " ORDER BY userid ASC");
 
                 while($row = $query->fetch_assoc()) {
                     printf("<tr>
@@ -73,7 +74,7 @@
 
             <?php
                 // get attributes to be displayed for allposts
-                $query = $db->query("SELECT postid, userid, title, content, tags FROM posts");
+                $query = $db->query("SELECT postid, userid, title, content, tags FROM posts ORDER BY postid ASC");
 
                 while($row = $query->fetch_assoc()) {
                     // only show part of the title

@@ -107,7 +107,8 @@ div.search form input[type="text"] {
     font-family: 'Benne', serif;
     font-size: 20px;
 
-    width: 500px;
+    max-width: 500px;
+    width: 30%;
 }
 
 div.search > form input[type="button"] {
@@ -140,7 +141,7 @@ div.search div.tags form input[type="button"]:hover {
   layouts*/
 
 div.create {
-  height:1100px
+  height:1100px;
 }
 
 div.createLeft {
@@ -148,6 +149,10 @@ div.createLeft {
   width: 20%;
   background-color: #f0f8ff;
   height: 100%;
+}
+
+#crateform input[type="text"] {
+    width: 100px;
 }
 
 div.createright {
@@ -169,7 +174,7 @@ div.createintro{
 #createText {
   resize: none;
   height: 800px;
-  width: 800px;
+  width: 100%;
 }
 
 /* Could add entrance tag to each animation */
@@ -193,8 +198,20 @@ article {
     padding: 20px;
     margin: 30px;
     background-color: lightslategray;
+
+    overflow: hidden;
+    max-height: 100px;
+}
+
+article:hover {
+    cursor: pointer;
+    border: 2px solid black;
 }
 
 form > * {
     display: block;
+}
+
+div.post-content {
+    text-align: center;
 }

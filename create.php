@@ -83,7 +83,7 @@
 					if(empty($_POST["createText"]))
 						$send = 1;
 					else
-						$createText = $_POST["createText"];
+						$createText = str_replace("'", "\"", $_POST["createText"]); // repalce all single quotes with double quotes
 
 					$title = htmlentities($_POST["title"]);
 					$tags = htmlentities($_POST["tags"]);
@@ -92,10 +92,10 @@
 
 					if($send==0){
 						$sql = "INSERT INTO posts (userid, title, content, tags) VALUES ('$useridSend','$title','$createText','$tagsSearchReady')";
-						if ($db->query($sql) === TRUE) {
-							echo "NEW POST MADE<br>";
+						if ($result = $db->query($sql) === TRUE) {
+							echo "<br />NEW POST MADE";
 						} else {
-							echo "Error: " . $sql . "<br>" . $conn->error;
+							echo "<br /><p style='color: red'>Error occurred in creating the page!</p><br>" . $sql;
 						}
 					}
 				}

@@ -3,9 +3,19 @@ table {
     margin-left: auto;
     margin-right: auto;
 
+    border-collapse: collapse;
+
     border: 1px solid black;
 }
 
 .show-posts {
+    border: 1px solid black;
+}
+
+tr {
+    border: 0.5px solid black;
+}
+
+td {
     border: 1px solid black;
 }

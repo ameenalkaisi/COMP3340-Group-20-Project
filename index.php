@@ -32,7 +32,6 @@
                 $response = json_decode(file_get_contents("http://api.weatherapi.com/v1/current.json?key=ce6e75322c984ec5a1f221002210808&q=Windsor&aqi=no"));
 
                 include_once("utils.php");
-                console_debug($response);
                 echo "<h3>" . $response->current->condition->text . "</h3>";
                 echo "<h4>" . $response->current->temp_c . "C</h4>";
             ?>
@@ -58,16 +57,16 @@
                 require_once("connection.php");
 
                 function createPostView($postid, $userid, $title, $content, $tags, $db) {
+                    /* doesn't work well because ability of user to add tagged information
                     // after 100 characters, content goes to ...
                     // after 20 charactesr, title goes ...
 
-                    if(strlen($title) > 20) {
-                        $title = substr_replace($title, "...", 17);
+                    if(strlen($title) > 20) { $title = substr_replace($title, "...", 17);
                     }
 
                     if(strlen($content) > 100) {
                         $content = substr_replace($content, "...", 97);
-                    }
+                    }*/
 
                     // if query has error, display name should show  
                     $resultRow = $db->query("SELECT display_name FROM users WHERE userid = $userid")->fetch_assoc();
@@ -82,8 +81,6 @@
                         </header>
                         $content
                     </article>";
-
-                    console_debug($content);
                 }
 
                 // try to connect to database, if can't, don't show recent posts at all
@@ -101,6 +98,6 @@
             ?>
         </div>
 
-        <script src="scripts/script.js"></script>
+        <script src="scripts/index.js"></script>
     </body>
 </html>
