@@ -94,8 +94,9 @@
                             <td>%s</td>
                             <td>
                                 <a href='edit_post.php?postid=%s'>Edit</a>
+                                <a href='delete_post.php?postid=%s'>Delete</a>
                             </td>
-                        </tr>", $row["postid"], $row["userid"], $title, $content, $row["tags"], $row["postid"]);
+                        </tr>", $row["postid"], $row["userid"], $title, $content, $row["tags"], $row["postid"], $row["postid"]);
                 }
 
                 mysqli_close($db);

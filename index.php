@@ -80,8 +80,10 @@
                             <h1>$title</h1>
                             <p>Author: $displayName</p>
                         </header>
-                        <p>$content</p>
+                        $content
                     </article>";
+
+                    console_debug($content);
                 }
 
                 // try to connect to database, if can't, don't show recent posts at all
