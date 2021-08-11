@@ -190,9 +190,14 @@ div.recommended {
     justify-content: left;
 
     background-color: lightblue;
+    overflow-wrap: break-word;
+
+    flex-direction:row;
+    flex-wrap: wrap;
 }
 
 article {
+    min-width: 40px;
     width: 10%;
 
     padding: 20px;

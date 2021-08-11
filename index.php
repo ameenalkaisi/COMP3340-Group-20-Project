@@ -87,9 +87,10 @@
                 $db = db_connect();
 
                 if($db) {
+                    // todo: randomize selection or make randomize towards user
                     $results = $db->query("SELECT * FROM posts");
 
-                    while($post = $results->fetch_assoc()) {
+                    for($i = 0; ($post = $results->fetch_assoc()) && $i < 9; ++$i) {
                         createPostView($post["postid"], $post["userid"], $post["title"], $post["content"], $post["tags"], $db);
                     }
 
