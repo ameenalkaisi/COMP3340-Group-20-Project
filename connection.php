@@ -10,13 +10,11 @@
         $username = CRED_USER;
         $password = CRED_PASSWORD;
         $dbname = "blogdb";
+        
+        @$db_connection = new mysqli($hostname, $username, $password, $dbname);
 
-        $db_connection = 0;
-
-        try {
-            $db_connection = new mysqli($hostname, $username, $password, $dbname);
-        } catch(Exception $e) {
-            console_log($e);
+        if($db_connection->connect_errno) {
+            $db_connection = 0;
         }
 
         return $db_connection;
