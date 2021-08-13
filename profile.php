@@ -102,7 +102,8 @@
 
 			<h1><?= $user["display_name"] ?></h1>
 
-			<?php if(isset($_SESSION["userid"]) && $_SESSION["userid"] == $userid) { // allow updating theme only if in own profile page?>
+			<?php if(isset($_SESSION["userid"]) && $_SESSION["userid"] == $userid) { ?>
+				<!-- Only seen by people who are viewing their own profiles -->
 				<div class="theme">
 					<h2>Theme settings</h2>
 					<form action="profile.php" method="POST">
@@ -130,6 +131,8 @@
 							header("Refresh:1");
 						}
 					?>
+
+				<a href="edit_user.php?id=<?= $_SESSION["userid"] ?>">Edit profile</a>
 				</div>
 			<?php } ?>
 

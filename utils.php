@@ -35,7 +35,7 @@
         echo "<article id='$postid' class='post'>
             <header>
                 <h1>$title</h1>
-                <p>Author: $displayName</p>
+                <p>Author: <a href='profile.php?userid=$userid'>$displayName</a></p>
             </header>
             $content
         </article>";

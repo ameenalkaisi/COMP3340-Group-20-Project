@@ -91,7 +91,7 @@
             <label for="password">Password</label>
             <input type="password" id="password" name="password"/>
 
-            <?php if($_SESSION["is_admin"] === "1") { ?>
+            <?php if($_SESSION["is_admin"] === "1" && $_SESSION["userid"] != $userid) { ?>
             <label for="is_admin">Admin</label>
             <input type="checkbox" id="is_admin" name="is_admin" <?php if($is_admin==="1") echo "checked"; ?>/>
 

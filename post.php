@@ -47,7 +47,7 @@
         </div>
 
         <div class="post-info">
-            <p>Author: <?= $author["display_name"] ?> </p>
+            <p>Author: <a href="profile.php?userid=<?= $post["userid"] ?>"><?= $author["display_name"] ?></a></p>
             <!-- temporary way of displaying tags -->
             <p>Tags: <?= $post["tags"] ?> </p>
         </div>
