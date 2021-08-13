@@ -37,9 +37,12 @@
             ?>
 
             <!--Note: might use the search's solution for this-->
-            <form action="action.php" autocomplete="off" method="GET">
-                <input type="text" id="searchbox" placeholder="Type here to search" />
+            <form action="search-results.php" autocomplete="off" method="GET">
+                <input type="text" id="searchbox" name="nametitle" placeholder="Type here to search" />
+                <input type="hidden" name="target" value="blog" />
+                <input type="hidden" name="tags" value="" />
                 <input type="button" id="submit" />
+                <a href="advanced-search.php">Advanced Search</a>
             </form>
 
             <!--

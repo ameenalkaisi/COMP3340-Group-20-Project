@@ -25,10 +25,16 @@
 		<?php 
 			include_once("navbar.php");
 
-			// if current user isn't logged in, go to the login page
-			if(!isset($_SESSION["display_name"])) {
-				header("Location: login.php");
-				exit();
+			// if current user isn't logged in and isn't trying to view another person's profile, go to the login page 
+			if(empty($_GET["userid"])) {
+				if(!isset($_SESSION["display_name"])) {
+					header("Location: login.php");
+					exit();
+				} else {
+					$userid = $_SESSION["userid"];
+				}
+			} else {
+				$userid = $_GET["userid"];	
 			}
 		?>
 
@@ -51,7 +57,14 @@
 				$db = db_connect();
 
 				// get user's defualt theme
-				$defualtTheme = $db->query("SELECT theme FROM users WHERE userid={$_SESSION["userid"]}")->fetch_assoc()["theme"];
+				$user = $db->query("SELECT display_name, theme, userid FROM users WHERE userid=$userid")->fetch_assoc();
+
+				if(empty($user["userid"])) {
+					header("Location: error.php");
+					exit();
+				}
+
+				$defualtTheme = $db->query("SELECT theme FROM users WHERE userid={$user["userid"]}")->fetch_assoc()["theme"];
 
 				if($_SERVER["REQUEST_METHOD"] == "POST"){
 					//check if user exist by searching name
@@ -87,36 +100,38 @@
 			?>
 			-->
 
-			<h1><?= $_SESSION["display_name"] ?></h1>
+			<h1><?= $user["display_name"] ?></h1>
 
-			<div class="theme">
-				<h2>Theme settings</h2>
-				<form action="profile.php" method="POST">
-					<select name="new_theme">
-						<option value="light" <?php if($defualtTheme === "light") echo "selected"?>>Light</option>
-						<option value="dark" <?php if($defualtTheme === "dark") echo "selected"?>>Dark</optoin>
-						<option value="christmas" <?php if($defualtTheme === "christmas") echo "selected"?>>Christmas</option>
-					</select>
-					<input type="submit" value="Change Theme"/>
-				</form>
+			<?php if(isset($_SESSION["userid"]) && $_SESSION["userid"] == $userid) { // allow updating theme only if in own profile page?>
+				<div class="theme">
+					<h2>Theme settings</h2>
+					<form action="profile.php" method="POST">
+						<select name="new_theme">
+							<option value="light" <?php if($defualtTheme === "light") echo "selected"?>>Light</option>
+							<option value="dark" <?php if($defualtTheme === "dark") echo "selected"?>>Dark</optoin>
+							<option value="christmas" <?php if($defualtTheme === "christmas") echo "selected"?>>Christmas</option>
+						</select>
+						<input type="submit" value="Change Theme"/>
+					</form>
 
-				<!-- Can select all posts that are made by user or something like that -->
+					<!-- Can select all posts that are made by user or something like that -->
 
-				<?php
-					if(!empty($_POST)) {
-						// update session variable
-						$_SESSION["theme"] = $_POST["new_theme"];
+					<?php
+						if(!empty($_POST)) {
+							// update session variable
+							$_SESSION["theme"] = $_POST["new_theme"];
 
-						// update database
-						$db = db_connect();
-						if($db) {
-							$db->query("UPDATE users SET theme='{$_SESSION["theme"]}' WHERE userid={$_SESSION["userid"]}");
-							mysqli_close($db);
+							// update database
+							$db = db_connect();
+							if($db) {
+								$db->query("UPDATE users SET theme='{$_SESSION["theme"]}' WHERE userid={$_SESSION["userid"]}");
+								mysqli_close($db);
+							}
+							header("Refresh:1");
 						}
-						header("Refresh:1");
-					}
-				?>
-			</div>
+					?>
+				</div>
+			<?php } ?>
 
 			<div class="history">
 				<h2>Created posts</h2>
@@ -126,7 +141,7 @@
 						$db = db_connect();
 
 						if($db) {
-							$results = $db->query("SELECT * FROM posts WHERE userid={$_SESSION["userid"]}");
+							$results = $db->query("SELECT * FROM posts WHERE userid={$user["userid"]}");
 
 							for($i = 0; ($post = $results->fetch_assoc()) && $i < 9; ++$i) {
 								createPostView($post["postid"], $post["userid"], $post["title"], $post["content"], $post["tags"], $db);
