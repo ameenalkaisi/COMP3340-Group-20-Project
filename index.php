@@ -41,7 +41,7 @@
                 <input type="text" id="searchbox" name="nametitle" placeholder="Type here to search" />
                 <input type="hidden" name="target" value="blog" />
                 <input type="hidden" name="tags" value="" />
-                <input type="button" id="submit" />
+                <input type="submit" id="submit" value=""/>
                 <a href="advanced-search.php">Advanced Search</a>
             </form>
 
