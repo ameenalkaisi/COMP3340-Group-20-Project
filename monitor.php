@@ -24,6 +24,6 @@
             mysqli_close($db);
         }
     ?>">
-        <h1 style="text-align: center">Green background if website works <br />Red background if it does not</h1>
+        <h1 style="text-align: center">Green background if database connection works <br />Red background if it does not</h1>
     </body>
 </html>

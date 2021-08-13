@@ -61,6 +61,7 @@
 						Article tags:<input type="text" name="tags" size="100">
 						<br>
 						<input name ="send" type="submit" value="Post Article">
+						<br />
 					</form>
 				</div>
 			</div>

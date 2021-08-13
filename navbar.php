@@ -31,7 +31,11 @@
 
                     <li>
                         <a href="aboutUs.php">About us</a>
-                    </li> ' .
+                    </li> 
+                    
+                    <li>
+                        <a href="help.php">Get Help</a>
+                    </li>' .
 
                     $admin . 
 
