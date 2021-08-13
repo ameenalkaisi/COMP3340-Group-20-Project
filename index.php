@@ -42,46 +42,21 @@
                 <input type="button" id="submit" />
             </form>
 
-            <div class="tags">
-                <!--Todo: put some sample tags, and show them to the user try to have an animation-->
-                <form action="action.php" id="tags-form">
-                    <input type="button" value="tag 1" />
-                    <input type="button" value="tag 2" />
-                    <input type="button" value="tag 3" />
-                </form>
-            </div>
+            <!--
+                <div class="tags">
+                    <form action="action.php" id="tags-form">
+                        <input type="button" value="tag 1" />
+                        <input type="button" value="tag 2" />
+                        <input type="button" value="tag 3" />
+                    </form>
+                </div>
+            -->
         </div>
 
-        <div class="recommended">
+        <div class="posts">
             <?php
                 require_once("connection.php");
-
-                function createPostView($postid, $userid, $title, $content, $tags, $db) {
-                    /* doesn't work well because ability of user to add tagged information
-                    // after 100 characters, content goes to ...
-                    // after 20 charactesr, title goes ...
-
-                    if(strlen($title) > 20) { $title = substr_replace($title, "...", 17);
-                    }
-
-                    if(strlen($content) > 100) {
-                        $content = substr_replace($content, "...", 97);
-                    }*/
-
-                    // if query has error, display name should show  
-                    $resultRow = $db->query("SELECT display_name FROM users WHERE userid = $userid")->fetch_assoc();
-                    $displayName = "&lt;Error Finding Author&gt;";
-                    if($resultRow) 
-                        $displayName = $resultRow["display_name"];
-
-                    echo "<article id='$postid' class='post'>
-                        <header>
-                            <h1>$title</h1>
-                            <p>Author: $displayName</p>
-                        </header>
-                        $content
-                    </article>";
-                }
+                require_once("utils.php");
 
                 // try to connect to database, if can't, don't show recent posts at all
                 $db = db_connect();
@@ -99,6 +74,6 @@
             ?>
         </div>
 
-        <script src="scripts/index.js"></script>
+        <script src="scripts/post_init.js"></script>
     </body>
 </html>

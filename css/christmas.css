@@ -1,0 +1,58 @@
+a {
+    color: black;
+}
+
+div.top-banner {
+    background-color: green;
+}
+
+div.top-banner nav > a {
+    color: black;
+}
+
+article:hover {
+    border-color: black;
+}
+
+div.top-banner nav ul li a:hover {
+    animation-name: link-hover;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes link-hover {
+    100% {
+        background-color: red;
+    }
+}
+
+div.posts {
+    background-color: gold;
+}
+
+div.content {
+    background-color: gold;
+}
+
+div.history div.posts {
+    background-color: unset;
+}
+
+article {
+    background-color: blue;
+}
+article > * {
+    color: white;;
+}
+
+div.createLeft, div.createright {
+    background-color: gold;
+}
+
+body {
+    background-color: lightcoral;
+}
+
+table {
+    background-color: lightgreen;
+}

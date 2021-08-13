@@ -2,16 +2,35 @@
 
 <html>
     <head>
+        <?php session_start(); ?>
+        
         <title>Blogsite</title>
         <meta name="keywords" content="blog, blogsite, create blogpost" />
         <meta name="description" content="Blog hosting service and search" />
 
         <link rel="stylesheet" href="css/styles.css" />
+        <link rel="stylesheet" href="css/edit.css" />
+        
+        <!--Based on user preference, show the theme they used from last time-->
+        <link rel="stylesheet" href="css/<?php
+            if(isset($_SESSION["theme"])) {
+                echo $_SESSION["theme"];
+            } else {
+                echo "light";
+            }
+        ?>.css" />
+		
+        <!--TinyMCE integration-->
+		<script src="https://cdn.tiny.cloud/1/a5nhq8wb7o6e7vpmejfn4ye4rqbg6cx49nihu6mrondcanvq/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+		<script>
+			tinymce.init({
+				selector: "#content"
+			});
+		</script>
     </head>
 
     <body>
         <?php 
-            session_start();
             include_once("navbar.php");
             require_once("connection.php");
 

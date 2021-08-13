@@ -11,6 +11,15 @@
 
         <link rel="stylesheet" href="css/styles.css" />
         <link rel="stylesheet" href="css/form.css" />
+
+        <!--Based on user preference, show the theme they used from last time-->
+        <link rel="stylesheet" href="css/<?php
+            if(isset($_SESSION["theme"])) {
+                echo $_SESSION["theme"];
+            } else {
+                echo "light";
+            }
+        ?>.css" />
     </head>
 
     <body>

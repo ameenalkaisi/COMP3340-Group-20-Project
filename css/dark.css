@@ -1,1 +1,56 @@
-/* TODO */
+a {
+    color: black;
+}
+
+div.top-banner {
+    background-color: gray;
+}
+
+div.top-banner nav > a {
+    color: black;
+}
+
+article:hover {
+    border-color: black;
+}
+
+div.top-banner nav ul li a:hover {
+    animation-name: link-hover;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes link-hover {
+    100% {
+        background-color: white;
+    }
+}
+
+div.posts {
+    background-color: darkgray;
+}
+
+div.content {
+    background-color: lightgray;
+}
+
+div.history div.posts {
+    background-color: unset;
+}
+
+article {
+    background-color: gray;
+}
+
+
+div.createLeft, div.createright {
+    background-color: lightgray;
+}
+
+body {
+    background-color: darkgray;
+}
+
+table {
+    background-color: lightgray;
+}

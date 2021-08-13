@@ -46,17 +46,5 @@
         <br>
         <h2>Homepage of the Website</h2>
         <div><a href="alkaisi.myweb.cs.uwindsor.ca/COMP-3340/Project/">https://alkaisi.myweb.cs.uwindsor.ca/COMP-3340/Project/</a></div>
-
-        <h2>Page Direct</h2>
-        <div class="directPage">
-            <ul>
-                <li>    
-                    <a href="./termsOfUse.php">Terms of Use</a>
-                </li>
-                <li>    
-                    <a href="./siteDescription.php">Site Description</a>
-                </li>
-            </ul>    
-        </div>
     </body>
 </html>
